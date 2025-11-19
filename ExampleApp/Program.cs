@@ -11,6 +11,10 @@ namespace EverythingSearchClient.Example
 			{
 				Console.OutputEncoding = Encoding.Unicode;
 
+				// Optional: Set Everything instance name (for Everything 1.5+)
+				// Uncomment to connect to a specific instance, e.g., "1.5a" for Everything 1.5 alpha
+				// SearchClient.InstanceName = "1.5a";
+
 				if (!SearchClient.IsEverythingAvailable())
 				{
 					throw new Exception("Everything service seems unavailable");
