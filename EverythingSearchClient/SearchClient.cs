@@ -11,6 +11,28 @@ namespace EverythingSearchClient
 	{
 
 		private static IpcWindow ipcWindow = new IpcWindow();
+		
+		/// <summary>
+		/// Everything instance name to connect to.
+		/// Null or empty connects to the default instance.
+		/// Everything 1.5 alpha uses "1.5a" as instance name.
+		/// </summary>
+		/// <remarks>
+		/// Note: Window message IPC (used by this library) connects to the main Everything window,
+		/// which works across all instances. Named pipe IPC (not yet implemented) would require
+		/// instance-specific pipe names.
+		/// </remarks>
+		public static string? InstanceName
+		{
+			get => ipcWindow.InstanceName;
+			set
+			{
+				if (ipcWindow.InstanceName != value)
+				{
+					ipcWindow = new IpcWindow(value);
+				}
+			}
+		}
 
 		/// <summary>
 		/// Predefined search filter string for audio files

@@ -9,7 +9,7 @@
     <Title>Everything Search Client</Title>
     <Version>0.9.0</Version>
     <Authors>SGrottel</Authors>
-    <Description>A .NET client library for Voidtools' Everything search engine, without the native Everything SDK dll.</Description>
+    <Description>A .NET client library for Voidtools' Everything search engine, without the native Everything SDK dll. Supports Everything 1.4 and 1.5.</Description>
     <Copyright>Copyright 2022-2025, by SGrottel</Copyright>
     <PackageProjectUrl>https://go.grottel.net/EverythingSearchClient</PackageProjectUrl>
     <RepositoryUrl>https://github.com/sgrottel/EverythingSearchClient.git</RepositoryUrl>
@@ -18,6 +18,7 @@
     <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
     <PackageIcon>MagnifyingGlass_x128.png</PackageIcon>
     <PackageTags>Voidtools;Everything;Search</PackageTags>
+    <PackageReleaseNotes>Added Everything 1.5 compatibility documentation and instance name support API (window message IPC maintains full backward compatibility).</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
