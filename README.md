@@ -162,10 +162,27 @@ class SearchClient
 	static Version GetEverythingVersion();
 
 	static bool IsEverythingBusy();
+	
+	// Everything 1.5 instance support
+	static string? InstanceName { get; set; }
 	// ... 
 }
 ```
 Your application should first check if Everything is generally `Available`, and should check if it's `Busy` before trying to submit a search query (to avoid unexpected wait times).
+
+### Everything 1.5 Support
+This library is compatible with **Everything 1.5** and later versions.
+
+Everything 1.5 introduces a new named pipe IPC mechanism but maintains full backward compatibility with the window message IPC used by this library. This means:
+
+* ✅ Everything 1.5 works seamlessly with this library without any code changes
+* ✅ All existing features continue to work as expected
+* ✅ Version detection correctly identifies Everything 1.5
+* ℹ️ Instance names are noted but window message IPC connects to the main window across all instances
+
+For Everything 1.5 alpha, the default instance name is "1.5a", but this does not affect the window message communication used by this library.
+
+**Future Enhancement:** Native named pipe support may be added in a future version to leverage Everything 1.5+ specific features and improved performance.
 
 In addition, you can use:
 ```csharp

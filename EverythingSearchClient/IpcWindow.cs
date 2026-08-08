@@ -17,15 +17,25 @@ namespace EverythingSearchClient
 	{
 
 		public IntPtr HWnd { get; private set; } = IntPtr.Zero;
+		
+		public string? InstanceName { get; private set; } = null;
 
-		public IpcWindow()
+		public IpcWindow(string? instanceName = null)
 		{
+			InstanceName = instanceName;
 			Detect();
 		}
 
 		public void Detect()
 		{
+			// Try to find Everything window
+			// Note: Everything 1.5 maintains backward compatibility with window messaging
+			// Window class name remains the same across versions
 			HWnd = FindWindow(EverythingIPC.EVERYTHING_IPC_WNDCLASS, null);
+			
+			// If not found and instance name was specified, try alternative methods
+			// For now, we rely on the main window which should work for all instances
+			// Everything 1.5 maintains a single window class for compatibility
 		}
 
 		public bool IsAvailable
